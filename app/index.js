@@ -309,6 +309,7 @@ Generator.prototype.createIndexHtml = function createIndexHtml() {
 Generator.prototype.packageFiles = function packageFiles() {
   this.coffee = this.env.options.coffee;
   this.template('root/_bower.json', 'bower.json');
+  this.template('root/_.jshintrc', '.jshintrc');
   this.template('root/_bowerrc', '.bowerrc');
   this.template('root/_package.json', 'package.json');
   this.template('root/_Gruntfile.js', 'Gruntfile.js');
