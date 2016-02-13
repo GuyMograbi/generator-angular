@@ -68,21 +68,21 @@ util.inherits(Generator, yeoman.generators.NamedBase);
 Generator.prototype.appTemplate = function (src, dest) {
   yeoman.generators.Base.prototype.template.apply(this, [
     src + this.scriptSuffix,
-    path.join(this.env.options.appPath, dest.toLowerCase()) + this.scriptSuffix
+    path.join(this.env.options.appPath, dest) + this.scriptSuffix
   ]);
 };
 
 Generator.prototype.testTemplate = function (src, dest) {
   yeoman.generators.Base.prototype.template.apply(this, [
     src + this.scriptSuffix,
-    path.join(this.env.options.testPath, dest.toLowerCase()) + this.scriptSuffix
+    path.join(this.env.options.testPath, dest) + this.scriptSuffix
   ]);
 };
 
 Generator.prototype.htmlTemplate = function (src, dest) {
   yeoman.generators.Base.prototype.template.apply(this, [
     src,
-    path.join(this.env.options.appPath, dest.toLowerCase())
+    path.join(this.env.options.appPath, dest)
   ]);
 };
 
@@ -94,7 +94,7 @@ Generator.prototype.addScriptToIndex = function (script) {
       file: fullPath,
       needle: '<!-- endbuild -->',
       splicable: [
-        '<script src="scripts/' + script.toLowerCase().replace(/\\/g, '/') + '.js"></script>'
+        '<script src="scripts/' + script.replace(/\\/g, '/') + '.js"></script>'
       ]
     });
   } catch (e) {
